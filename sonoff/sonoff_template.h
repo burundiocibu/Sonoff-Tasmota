@@ -146,6 +146,8 @@ enum UserSelectablePins {
   GPIO_MAX31855CS,     // MAX31855 Serial interface
   GPIO_MAX31855CLK,    // MAX31855 Serial interface
   GPIO_MAX31855DO,     // MAX31855 Serial interface
+  GPIO_HRE_CLOCK,
+  GPIO_HRE_DATA,
   GPIO_SENSOR_END };
 
 // Programmer selectable GPIO functionality offset by user selectable GPIOs
@@ -209,7 +211,8 @@ const char kSensorNames[] PROGMEM =
   D_SENSOR_SSPI_MISO "|" D_SENSOR_SSPI_MOSI "|" D_SENSOR_SSPI_SCLK "|" D_SENSOR_SSPI_CS "|" D_SENSOR_SSPI_DC "|"
   D_SENSOR_RF_SENSOR "|"
   D_SENSOR_AZ_TX "|" D_SENSOR_AZ_RX "|"
-  D_SENSOR_MAX31855_CS "|" D_SENSOR_MAX31855_CLK "|" D_SENSOR_MAX31855_DO;
+  D_SENSOR_MAX31855_CS "|" D_SENSOR_MAX31855_CLK "|" D_SENSOR_MAX31855_DO "|"
+  D_SENSOR_HRE_CLOCK "|" D_SENSOR_HRE_DATA;
 
 /********************************************************************************************/
 
@@ -506,6 +509,10 @@ const uint8_t kGpioNiceList[] PROGMEM = {
   GPIO_MAX31855CLK,    // MAX31855 Serial interface
   GPIO_MAX31855DO,     // MAX31855 Serial interface
 #endif
+#ifdef USE_HRE
+  GPIO_HRE_CLOCK,
+  GPIO_HRE_DATA,
+#endif  
 };
 
 const uint8_t kModuleNiceList[MAXMODULE] PROGMEM = {
